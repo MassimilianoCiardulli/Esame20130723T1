@@ -1,0 +1,18 @@
+	try {
+    		int matricola = Integer.parseInt(this.txtMatricola.getText());
+    		Studente s = model.getInfoStudente(matricola);
+    		
+    		if(s==null) {
+    			this.txtResult.setText("La matricola inserita non corrisponde a nessuno studente.\n");
+    			return ;
+    		}
+    		
+    		this.txtResult.setText("Studente: "+s.getCognome() + " " +s.getNome() + "\n");
+    		for(Corso c : s.getCaricodidattico()) {
+    			this.txtResult.appendText(c.getNome()+"\n");
+    			
+    		}
+    		
+    	} catch(NumberFormatException e) {
+    		this.txtMatricola.setText("Inserire un numero di matricola valido\n");
+    	}
